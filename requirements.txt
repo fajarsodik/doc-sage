@@ -1,0 +1,5 @@
+torch === 2.7.1
+transformers === 4.53.0
+streamlit === 1.46.1
+PyMuPDF === 1.26.3
+hf-xet === 1.1.5
