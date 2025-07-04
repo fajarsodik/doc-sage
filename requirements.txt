@@ -1,4 +1,6 @@
+faiss-cpu === 1.11.0
 torch === 2.7.1
+sentence-transformers === 5.0.0
 transformers === 4.53.0
 streamlit === 1.46.1
 PyMuPDF === 1.26.3

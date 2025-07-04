@@ -1,6 +1,7 @@
 import streamlit as st
 import fitz
 from transformers import pipeline
+from sentence_transformers import SentenceTransformer
 
 st.set_page_config(page_title="AI PDF Summarizer", layout="centered")
 st.title("📄 AI PDF Summarizer")
@@ -8,14 +9,16 @@ st.markdown("Upload a PDF and get a concise AI-generated summary.")
 
 # Load summarizer model (use smaller model for faster results if needed)
 @st.cache_resource
-def load_summarizer():
-    return pipeline("summarization", model="facebook/bart-large-cnn")
+def load_models():
+    embedder = SentenceTransformer("all-MiniLM-L6-v2")
+    explainier = pipeline("summarization", model="facebook/bart-large-cnn")
+    return embedder, explainer
 
 @st.cache_resource
 def load_qa():
     return pipeline("question-answering", model="deepset/roberta-base-squad2")
 
-summarizer = load_summarizer()
+embedder, explainer = load_models()
 qa_model = load_qa()
 
 # Upload PDF
