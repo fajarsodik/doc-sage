@@ -1,6 +1,5 @@
 import streamlit as st
-import fitz  # PyMuPDF
-# Summarize with Hugging Face Transformers
+import fitz
 from transformers import pipeline
 
 st.set_page_config(page_title="AI PDF Summarizer", layout="centered")
